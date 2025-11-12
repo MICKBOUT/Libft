@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboutte <mboutte@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:00:13 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/06 15:41:29 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 11:10:30 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	unsigned char	*dest;
 
 	i = 0;
+	if (nmemb > 0 && size > SIZE_MAX / nmemb)
+		return (NULL);
 	s = nmemb * size;
 	dest = malloc(s);
 	if (!dest)
