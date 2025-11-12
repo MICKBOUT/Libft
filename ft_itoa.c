@@ -15,7 +15,7 @@
 static int	ft_abs_mod(int n)
 {
 	if (n == -2147483648)
-		return (8 + '0');
+		return ('8');
 	else if (n < 0)
 		n = -n;
 	return (n % 10 + '0');

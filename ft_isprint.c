@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboutte <mboutte@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:45:48 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/06 15:41:37 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 16:56:24 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int	ft_isprint(int i)
 {
-	if (32 <= i && i <= 126)
-	{
-		return (1);
-	}
-	return (0);
+	return (32 <= i && i <= 126);
 }
 /*
 int	main(void)

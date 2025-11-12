@@ -6,7 +6,7 @@
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:00:13 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/12 11:10:30 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 17:19:23 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t			s;
-	size_t			i;
 	unsigned char	*dest;
 
-	i = 0;
 	if (nmemb > 0 && size > SIZE_MAX / nmemb)
 		return (NULL);
 	s = nmemb * size;
 	dest = malloc(s);
 	if (!dest)
 		return (NULL);
-	while (i < s)
-		dest[i++] = 0;
+	ft_bzero(dest, s);
 	return (dest);
 }
 /*

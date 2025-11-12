@@ -6,7 +6,7 @@
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:36:53 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/06 17:09:31 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 16:56:38 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_isascii(int i)
 {
-	if (0 <= i && i < 128)
-		return (1);
-	return (0);
+	return ((0 <= i && i < 128));
 }
 /*
 #include <ctype.h>

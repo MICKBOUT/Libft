@@ -6,7 +6,7 @@
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:20:11 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/06 17:01:05 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 17:30:42 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	i;
 	size_t	j;
 
-	i = -1;
-	j = -1;
 	str = malloc(sizeof(char)
 			* (ft_strlen((char *) s1) + ft_strlen((char *) s2) + 1));
 	if (!str)
 		return (NULL);
-	str[0] = s1[0];
+	i = -1;
 	while (s1[++i])
 		str[i] = s1[i];
+	j = -1;
 	while (s2[++j])
 		str[i + j] = s2[j];
 	str[i + j] = '\0';

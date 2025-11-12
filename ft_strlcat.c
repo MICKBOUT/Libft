@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboutte <mboutte@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:10:36 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/06 15:41:43 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 17:29:33 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	unsigned int	size_d;
 	unsigned int	size_s;
 
-	j = 0;
-	size_d = 0;
-	while (dest[size_d])
-		size_d++;
-	size_s = 0;
-	while (src[size_s])
-		size_s++;
-	i = size_d;
+	size_s = ft_strlen(src);
 	if (size < 1)
 		return (size_s + size);
-	while (size > i + 1 && src[j])
-	{
-		dest[i] = src[j];
-		j++;
-		i++;
-	}
+	size_d = ft_strlen(dest);
+	i = size_d;
+	j = 0;
+	while (src[j] && size > i + 1)
+		dest[i++] = src[j++];
 	dest[i] = '\0';
 	if (size < size_d)
 		return (size_s + size);

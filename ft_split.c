@@ -74,11 +74,11 @@ static void	ft_freeing(char ***split, size_t j)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		status;
+	int		state;
 	size_t	i;
 	size_t	j;
 
-	status = 0;
+	state = 0;
 	if (!s)
 		return (NULL);
 	split = malloc(sizeof(char *) * ft_split_size_allocate(s, c));
@@ -86,13 +86,10 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	j = 0;
 	i = 0;
-	while (status == 0)
-		status = ft_split_add(&split[j++], &i, s, c);
-	if (status == -1)
-	{
+	while (state == 0)
+		state = ft_split_add(&split[j++], &i, s, c);
+	if (state == -1)
 		ft_freeing(&split, j);
-		return (NULL);
-	}
 	return (split);
 }
 

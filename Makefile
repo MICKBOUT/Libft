@@ -6,7 +6,7 @@
 #    By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 13:11:57 by mboutte           #+#    #+#              #
-#    Updated: 2025/11/12 11:47:45 by mboutte          ###   ########.fr        #
+#    Updated: 2025/11/12 17:34:49 by mboutte          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -MMD -MP
 LIB_BONUS= bonus_library 
 SRCS_INCLUDE = libft.h
-SRCS= \
+SRCS=\
 	ft_atoi.c		\
 	ft_bzero.c		\
 	ft_calloc.c		\
@@ -50,8 +50,7 @@ SRCS= \
 	ft_tolower.c	\
 	ft_toupper.c	\
 	ft_strmapi.c
-
-BONUS_SRCS=	\
+BONUS_SRCS=\
 	ft_lstnew_bonus.c		\
 	ft_lstnew_bonus.c 		\
 	ft_lstadd_front_bonus.c \
@@ -64,24 +63,22 @@ BONUS_SRCS=	\
 	ft_lstclear_bonus.c
 
 
-OBJS =$(SRCS:.c=.o)
+OBJS= $(SRCS:.c=.o)
 
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+BONUS_OBJS= $(BONUS_SRCS:.c=.o)
 
-ALL_D = $(SRCS:.c=.d) $(BONUS_SRCS:.c=.d)
+ALL_D= $(SRCS:.c=.d) $(BONUS_SRCS:.c=.d)
 
 all: $(NAME)
 
 bonus: .bonus_done
 
-.bonus_done: $(NAME) $(BONUS_OBJS)
+.bonus_done: $(BONUS_OBJS) $(SRCS_INCLUDE) Makefile
 	ar rcs $(NAME) $(BONUS_OBJS)
 	@touch .bonus_done
 
-$(NAME): $(OBJS) $(SRCS_INCLUDE)
+$(NAME): $(OBJS) $(SRCS_INCLUDE) Makefile
 	ar rcs $(NAME) $(OBJS)
-	
--include $(ALL_D)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -93,5 +90,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+-include $(ALL_D)
 
 .PHONY: all clean fclean re bonus

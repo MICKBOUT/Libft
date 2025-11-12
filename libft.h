@@ -6,7 +6,7 @@
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:16:18 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/12 09:28:05 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/11/12 16:47:37 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
-# include <string.h>
 
 typedef struct s_list
 {
