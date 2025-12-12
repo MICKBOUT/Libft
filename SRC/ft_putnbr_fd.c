@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 static void	ft_putnbr_rec(unsigned int n, int fd)
 {
 	char	c;
