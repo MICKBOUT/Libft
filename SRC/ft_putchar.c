@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,29 @@
 
 #include "libft.h"
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
 
-/*
-int main(void)
+int	ft_putchar_printf(char c, t_flag_printf flag)
 {
-	ft_putchar_fd('1', 1);
-	ft_putchar_fd('2', 1);
-	ft_putchar_fd('3', 1);
-	ft_putchar_fd('4', 1);
-	ft_putchar_fd('5', 1);
-	return (0);
-}*/
+	int	count;
+
+	if (flag.atoi == 0)
+		return (write(1, &c, 1));
+	count = 1;
+	if (flag.minus == 0)
+		while (count < flag.atoi)
+			count += write(1, " ", 1);
+	write(1, &c, 1);
+	if (flag.minus == 1)
+		while (count < flag.atoi)
+			count += write(1, " ", 1);
+	return (count);
+}

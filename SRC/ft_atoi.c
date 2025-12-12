@@ -6,7 +6,7 @@
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:22:00 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/12 17:03:58 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/12/12 14:53:54 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ int	ft_atoi(const char *str)
 		res = (res * 10) + str[i++] - '0';
 	return (res * sign);
 }
-/*
-int	main(void)
+
+int	ft_atoi_printf(char **str)
 {
-	char	test[] = "  45";	
-	__builtin_printf("%d", ft_atoi(test));
-	return (0);
-}*/
+	unsigned int	res;	
+
+	res = 0;
+	if (**str == '.')
+		(*str)++;
+	while ('0' <= **str && **str <= '9' && **str)
+	{
+		res = (res * 10) + (int)**str - '0';
+		(*str)++;
+	}
+	return (res);
+}

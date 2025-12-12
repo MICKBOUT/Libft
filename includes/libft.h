@@ -6,7 +6,7 @@
 /*   By: mboutte <mboutte@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:16:18 by mboutte           #+#    #+#             */
-/*   Updated: 2025/11/12 16:47:37 by mboutte          ###   ########.fr       */
+/*   Updated: 2025/12/12 14:38:13 by mboutte          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,44 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct t_flag_printf
+{
+	int	hash;
+	int	space;
+	int	plus;
+	int	minus;
+	int	zero;
+	int	dot;
+	int	atoi;
+}	t_flag_printf;
+
+int			ft_atoi_printf(char **str);
+int			ft_min(int a, int b);
+int			ft_min_printf(int a, int b);
+int			ft_max(int a, int b);
+int			ft_putchar_printf(char c, t_flag_printf flag);
+int			ft_puthexa_printf(unsigned int n, t_flag_printf flage, int maj);
+int			ft_putchar_printf(char c, t_flag_printf flag);
+int			ft_putnbr_printf(long int n, t_flag_printf flag);
+int			ft_putpointer_printf(void *ptr, t_flag_printf flag);
+int			ft_putstr_printf(char *s, t_flag_printf flag);
+int			ft_putunsigned_printf(unsigned int n, t_flag_printf flag);
+int			ft_strlen_printf(char *str, t_flag_printf flag);
+int			ft_unsigned_size_printf(unsigned int n, t_flag_printf flag);
+int			ft_hexa_size_printf(unsigned int n, t_flag_printf flag);
+int			ft_ln_len_printf(long int n, t_flag_printf flag);
+int			ft_strlen_printf(char *str, t_flag_printf flag);
+int			ft_ptrlen(unsigned long ptr);
+int			ft_printf(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
+
 
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
@@ -46,6 +78,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memset(void *s, int c, size_t n);
+void		ft_putchar(char c);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
@@ -66,5 +99,4 @@ char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
-
 #endif

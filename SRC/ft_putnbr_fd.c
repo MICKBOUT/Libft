@@ -12,14 +12,6 @@
 
 #include "libft.h"
 
-/*
-void ft_putnbr_fd(int n, int fd)
-{
-	char *str;
-
-	str = ft_itoa(n);
-	write(fd, str, ft_strlen(str));
-}*/
 
 static void	ft_putnbr_rec(unsigned int n, int fd)
 {
@@ -45,10 +37,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_rec((unsigned int) -n, fd);
 	}
 }
-
-/*
-int	main(void)
-{
-	ft_putnbr_fd(-1000, 1);
-	return (0);
-}*/
